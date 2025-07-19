@@ -9,23 +9,24 @@ using UnityEngine.SceneManagement;
 public class SettingsManager : MonoBehaviour
 {
 
- 
+    
     Resolution[] resolutions;
-    public TextMeshProUGUI speedText;
-    public TextMeshProUGUI deathRateText;
-    public TextMeshProUGUI reloadTimeText;
-    public TextMeshProUGUI maxScoreText;
-    public AudioMixer audioMixer;
-    public TMPro.TMP_Dropdown resolutionDropdown;
-    public Slider Volume;
-    public Toggle fullScreen;
-    public TMP_Dropdown qualt;
-    public Toggle Processing;
-    public Slider DeathRate;
-    public Slider Speed;
-    public Slider Reload;
-    public Slider Score;
-    [SerializeField] private int menuScene;
+    [SerializeField] TextMeshProUGUI speedText;
+    [SerializeField] TextMeshProUGUI deathRateText;
+    [SerializeField] TextMeshProUGUI reloadTimeText;
+    [SerializeField] TextMeshProUGUI maxScoreText;
+    [SerializeField] AudioMixer audioMixer;
+    [SerializeField] TMPro.TMP_Dropdown resolutionDropdown;
+    [SerializeField] Slider Volume;
+    [SerializeField] Toggle fullScreen;
+    [SerializeField] TMP_Dropdown qualt;
+    [SerializeField] Toggle Processing;
+    [SerializeField] Slider DeathRate;
+    [SerializeField] Slider Speed;
+    [SerializeField] Slider Reload;
+    [SerializeField] Slider Score;
+    MenuManager menuManager;
+
     private void Start()
     {
         Volume.value = PlayerPrefs.GetFloat("Volume", 0);
@@ -44,7 +45,7 @@ public class SettingsManager : MonoBehaviour
         Reload.value = PlayerPrefs.GetInt("reloadTime", 3);
         Score.value= PlayerPrefs.GetInt("maxScore", 5);
 
-
+        menuManager=GetComponent<MenuManager>();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
        
@@ -103,10 +104,7 @@ public class SettingsManager : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height,Screen.fullScreen);
         
     }
-    public void BackToMenu()
-    {
-        SceneManager.LoadScene(menuScene);
-    }
+   
     public void SetSpeedSlider(float speed)
     {
         speedText.SetText(speed.ToString());
@@ -130,6 +128,6 @@ public class SettingsManager : MonoBehaviour
     public void deleteData()
     {
         PlayerPrefs.DeleteAll();
-        BackToMenu();
+        menuManager.NextScene(0);
     }
 }

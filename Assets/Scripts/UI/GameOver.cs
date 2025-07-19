@@ -1,38 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-
-public class GameOver : MonoBehaviour
+public class GameOver : PauseGame
 {
-    public GameObject GameOverScreen;
-    public GameObject Score;
     public TextMeshProUGUI playerWonText;
-    public ScoreManager scoreManager;
-    [HideInInspector] public bool gameIsOver;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        gameIsOver=false;
-        Time.timeScale= 1.0f;
-        GameOverScreen.SetActive(false);
-        Score.SetActive(true);
-       
+        TurnOff();
+        GameManager.instance.End += TurnOn;
     }
 
-    // Update is called once per frame
-    void Update()
+    public new void TurnOn()
     {
-        
-    }
-    public void EndGame()
-    {
-       
-        GameOverScreen.SetActive(true);
-        Score.SetActive(false);
-        Time.timeScale = 0;
-        playerWonText.SetText(scoreManager.Victor()+"!!!");
-        gameIsOver = true;
+        screen.SetActive(true);
+        playerWonText.SetText(ScoreManager.instance.Victor() + "!!!");
     }
 }

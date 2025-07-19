@@ -571,7 +571,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -1145,7 +1145,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1365,18 +1365,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1242731823}
+    m_SelectOnDown: {fileID: 1242731823}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 0.227451, g: 0.227451, b: 0.69803923, a: 0.2}
     m_HighlightedColor: {r: 0.22745097, g: 0.22876312, b: 0.69803923, a: 1}
-    m_PressedColor: {r: 0, g: 0.325516, b: 1, a: 1}
-    m_SelectedColor: {r: 0, g: 0.3077011, b: 1, a: 0}
+    m_PressedColor: {r: 0, g: 0.30588236, b: 1, a: 1}
+    m_SelectedColor: {r: 0, g: 0.30588236, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1396,9 +1396,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 753291388}
-        m_TargetAssemblyTypeName: GameOverManager, Assembly-CSharp
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 753291389}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1590,7 +1590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 742888830}
   - component: {fileID: 742888829}
-  - component: {fileID: 742888828}
+  - component: {fileID: 742888831}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1598,26 +1598,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &742888828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742888827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &742888829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,6 +1628,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 753291387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742888831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742888827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &746967620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,9 +1669,9 @@ GameObject:
   m_Component:
   - component: {fileID: 746967621}
   - component: {fileID: 746967623}
-  - component: {fileID: 746967624}
   - component: {fileID: 746967625}
   - component: {fileID: 746967626}
+  - component: {fileID: 746967627}
   m_Layer: 0
   m_Name: GunForPlayer2
   m_TagString: Gun2
@@ -1739,23 +1750,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &746967624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746967620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cfe203ae510bc54b8f89ee052475382, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ball: {fileID: 2248117305132576440, guid: 5cd25b99f4cf01244abe9a0fe9ed2070, type: 3}
-  gunShot: {fileID: 746967625}
-  isShooting: 0
-  reloadTime: 3
-  animator: {fileID: 746967626}
 --- !u!82 &746967625
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1875,6 +1869,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &746967627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746967620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777b6b33e806b1f4eb6592c6dd34f4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 2248117305132576440, guid: 5cd25b99f4cf01244abe9a0fe9ed2070, type: 3}
+  gay: {fileID: 753291388}
+  isShooting: 0
 --- !u!1 &753291385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,6 +1895,7 @@ GameObject:
   - component: {fileID: 753291387}
   - component: {fileID: 753291386}
   - component: {fileID: 753291388}
+  - component: {fileID: 753291389}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -1907,8 +1917,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1658470253}
   text2: {fileID: 2090979027}
-  gameOver: {fileID: 1866828220}
-  finalScore: 5
 --- !u!4 &753291387
 Transform:
   m_ObjectHideFlags: 0
@@ -1935,7 +1943,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 753291385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1043e812864ab4e838f40744bc314b, type: 3}
+  m_Script: {fileID: 11500000, guid: fd1e504842066de4298dae575f8aa11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  e: {fileID: 742888829}
+  PauseFirst: {fileID: 2019823503}
+  GameEndFirst: {fileID: 639569392}
+  state: 0
+--- !u!114 &753291389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753291385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62d265f149aa02949bd4408ac1c9b8fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &760435710
@@ -1948,9 +1972,9 @@ GameObject:
   m_Component:
   - component: {fileID: 760435711}
   - component: {fileID: 760435712}
-  - component: {fileID: 760435713}
   - component: {fileID: 760435714}
   - component: {fileID: 760435715}
+  - component: {fileID: 760435716}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Gun1
@@ -2029,23 +2053,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &760435713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760435710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4e1a73bc7e531843b4742ec0b77486f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Ball: {fileID: 2248117305132576440, guid: 8d62a0421f4e5034d94ed0ab4f085cbd, type: 3}
-  gunShot: {fileID: 760435714}
-  isShooting: 0
-  reloadTime: 3
-  animator: {fileID: 760435715}
 --- !u!82 &760435714
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2165,6 +2172,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &760435716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760435710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e1a73bc7e531843b4742ec0b77486f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 2248117305132576440, guid: 8d62a0421f4e5034d94ed0ab4f085cbd, type: 3}
+  gay: {fileID: 753291388}
+  isShooting: 0
 --- !u!1 &860800003
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,18 +2622,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 639569394}
+    m_SelectOnDown: {fileID: 639569394}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 0.227451, g: 0.227451, b: 0.69803923, a: 0.2}
     m_HighlightedColor: {r: 0.22745097, g: 0.22876312, b: 0.69803923, a: 1}
-    m_PressedColor: {r: 0, g: 0.325516, b: 1, a: 1}
-    m_SelectedColor: {r: 0, g: 0.3077011, b: 1, a: 0}
+    m_PressedColor: {r: 0, g: 0.30588236, b: 1, a: 1}
+    m_SelectedColor: {r: 0, g: 0.30588236, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2631,10 +2653,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1866828221}
-        m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
-        m_MethodName: ExitGame
-        m_Mode: 1
+      - m_Target: {fileID: 753291389}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3010,7 +3032,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -3207,9 +3229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083c3ba0d49fa3a4684034fa3b492885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 753291386}
-  PointSound: {fileID: 1524105008}
   Speed: 20
+  ballTag: BallForPlayer2
 --- !u!61 &1524105004
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3734,8 +3755,8 @@ GameObject:
   - component: {fileID: 1548761452}
   - component: {fileID: 1548761451}
   - component: {fileID: 1548761449}
-  - component: {fileID: 1548761454}
   - component: {fileID: 1548761455}
+  - component: {fileID: 1548761456}
   m_Layer: 0
   m_Name: Player Two
   m_TagString: PlayerTwo
@@ -3888,21 +3909,6 @@ Transform:
   - {fileID: 468857019}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1548761454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548761448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e85d3eac908a31140bdeac9cec33b2f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreManager: {fileID: 753291386}
-  PointSound: {fileID: 1548761455}
-  Speed: 20
 --- !u!82 &1548761455
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4000,6 +4006,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1548761456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548761448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85d3eac908a31140bdeac9cec33b2f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 20
+  ballTag: Ball
 --- !u!1 &1658470251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4219,10 +4239,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1866828221}
-        m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
-        m_MethodName: ExitGame
-        m_Mode: 1
+      - m_Target: {fileID: 753291389}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4413,8 +4433,9 @@ GameObject:
   - component: {fileID: 1866828218}
   - component: {fileID: 1866828217}
   - component: {fileID: 1866828216}
-  - component: {fileID: 1866828220}
+  - component: {fileID: 1866828222}
   - component: {fileID: 1866828221}
+  - component: {fileID: 1866828220}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4516,15 +4537,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866828215}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513ede42b74aacc45939daaff9c3e2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screen: {fileID: 1818058867}
+--- !u!114 &1866828221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866828215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ece4a6e384fb5e241a738480e14741a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverScreen: {fileID: 71199752}
-  Score: {fileID: 1818058867}
+  screen: {fileID: 71199752}
   playerWonText: {fileID: 1395792807}
-  scoreManager: {fileID: 753291386}
-  gameIsOver: 0
---- !u!114 &1866828221
+--- !u!114 &1866828222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4536,9 +4567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f39ff21f315bd64cbc9893639f5647e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: {fileID: 1193033074}
-  menuScene: 0
-  settingsScene: 1
+  screen: {fileID: 1193033074}
 --- !u!1 &1903095201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4774,10 +4803,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1691729816}
+    m_SelectOnDown: {fileID: 2019823505}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -4805,14 +4834,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1866828221}
-        m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
-        m_MethodName: Settings
-        m_Mode: 1
+      - m_Target: {fileID: 753291389}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: NextScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4907,10 +4936,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 2005098818}
+    m_SelectOnDown: {fileID: 1691729816}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -4938,9 +4967,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1866828221}
-        m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
-        m_MethodName: UnpauseTheGame
+      - m_Target: {fileID: 753291388}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: UnPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

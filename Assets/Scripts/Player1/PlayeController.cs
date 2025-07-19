@@ -1,26 +1,30 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayeController : MonoBehaviour
 {
-    public ScoreManager scoreManager;
-    public AudioSource PointSound;
+
+    protected AudioSource PointSound;
 
     // Start is called before the first frame update
 
-    public float Speed ;
+    [SerializeField] protected float Speed;
+    [SerializeField] protected string ballTag;
+    protected InputAction move;
+     InputAction pause;
     protected Rigidbody2D rb;
     protected Vector2 movement;
+
     protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        PointSound = GetComponent<AudioSource>();
 
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        movement.y = Input.GetAxisRaw("Vertical");
 
+        movement = move.ReadValue<Vector2>();
     }
     protected void FixedUpdate()
     {
@@ -32,13 +36,33 @@ public class PlayeController : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("BallForPlayer2"))
+        if (collision.gameObject.CompareTag(ballTag))
         {
 
-            scoreManager.LeftAddScore(1);
+            ScoreManager.instance.LeftAddScore(1);
             PointSound.Play();
         }
 
     }
+    private void Pause(InputAction.CallbackContext context)
+    {
+        GameManager.instance.PauseGame();
+    }
+    private void OnEnable()
+    {
+        move = GameManager.instance.Map.Player.Movement;
+        pause=GameManager.instance.Map.Player.Pause;
+        GameManager.instance.Map.Player.Pause.performed += Pause;
+        move.Enable();
+        pause.Enable();
 
+
+    }
+    private void OnDisable()
+    {
+        GameManager.instance.Map.Player.Pause.performed -= Pause;
+        move.Disable();
+        pause.Disable();
+
+    }
 }

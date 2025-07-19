@@ -1,49 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using JetBrains.Annotations;
+using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager instance;
+    bool end = false;
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(instance);
+    }
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI text2;
-    [SerializeField] private GameOver gameOver;
     int finalScore;
     int score = 0;
     int score2 = 0;
     private void Start()
     {
-        finalScore = PlayerPrefs.GetInt("maxScore",5);
+        finalScore = PlayerPrefs.GetInt("maxScore", 5);
     }
     void Update()
     {
-        if (score==finalScore)
+        if (score == finalScore&&!end)
         {
-            gameOver.EndGame();
-           
+            end= true;
+            GameManager.instance.GameOver();
+
         }
-        else if (score2== finalScore)
+        else if (score2 == finalScore && !end)
         {
-            gameOver.EndGame();
-          
+            end = true;
+            GameManager.instance.GameOver();
         }
     }
     public void LeftAddScore(int amount)
     {
-       score+= amount;
-       
-       text.SetText(score.ToString());
+        score += amount;
+
+        text.SetText(score.ToString());
     }
     public void RightAddScore(int amount)
     {
-       score2+= amount;
+        score2 += amount;
 
-       text2.SetText(score2.ToString());
+        text2.SetText(score2.ToString());
     }
     public string Victor()
     {
-        if(score==finalScore)
+        if (score == finalScore)
         {
             return "Player 2 Won";
         }
@@ -51,9 +56,9 @@ public class ScoreManager : MonoBehaviour
         {
             return "Player 1 Won";
         }
-        else 
+        else
             return "Error";
     }
-    
-    
+
+
 }

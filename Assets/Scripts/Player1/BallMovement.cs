@@ -1,20 +1,21 @@
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    [HideInInspector] public float Speed = 10;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] protected AudioSource bounce;
-
-    [HideInInspector] public float DeathRate = 10;
-    [HideInInspector] public float timer;
+    float Speed = 10;
+  Rigidbody2D rb;
+  AudioSource bounce;
+    [SerializeField]  string playerTag;
+   float DeathRate = 10;
+   [HideInInspector] public  float timer;
     
     Vector2 Move;
 
     // Start is called before the first frame update
-     protected void Start()
+     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        bounce = GetComponent<AudioSource>();
         Speed = PlayerPrefs.GetInt("speed", 10);
         DeathRate = PlayerPrefs.GetInt("deathRate", 10);
         Movement();
@@ -23,12 +24,12 @@ public class BallMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected void Update()
+     void Update()
     {
         TimedDeath();
 
     }
-    protected void Movement()
+     void Movement()
     {
         Move.x = Random.Range(0, 2) == 0 ? -1 : 1;
         Move.y = Random.Range(0, 2) == 0 ? -1 : 1;
@@ -39,7 +40,7 @@ public class BallMovement : MonoBehaviour
         Destroy(this.gameObject);
 
     }
-    protected void TimedDeath()
+     void TimedDeath()
     {
         if (timer < DeathRate)
         {
@@ -51,10 +52,10 @@ public class BallMovement : MonoBehaviour
             timer = 0;
         }
     }
-    void OnCollisionEnter2D(Collision2D collision)
+     void OnCollisionEnter2D(Collision2D collision)
     {
         bounce.Play();
-        if (collision.gameObject.CompareTag("PlayerTwo"))
+        if (collision.gameObject.CompareTag(playerTag))
         {
             Kill();
         }

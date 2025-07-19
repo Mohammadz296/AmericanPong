@@ -1,38 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
+
 
 public class Gun : MonoBehaviour
 {
-    public GameObject Ball;
-    public AudioSource gunShot;
+     [SerializeField] protected GameObject Ball;
+    protected AudioSource gunShot;
+    [SerializeField] protected GameManager gay;
     [HideInInspector]public bool isShooting = false;
-    public int reloadTime;
-   public Animator animator;
-    BallMovement ballMovement;
-  
-    protected Vector3 pointShot;
-    // Update is called once per frame
+    protected int reloadTime;
+   protected Animator animator;
+       protected InputAction fire;
+    protected BallMovement ballMovement;
+    protected WaitForSeconds reloadWait;
 
-     protected void Start()
+    protected Vector3 pointShot;
+    protected void Awake()
+    {
+        reloadWait= new WaitForSeconds(reloadTime);
+    }
+
+    protected void Start()
     {
         reloadTime = PlayerPrefs.GetInt("reloadTime",3);
        ballMovement=Ball.GetComponent<BallMovement>();
+        gunShot = GetComponent<AudioSource>();
+   animator= GetComponent<Animator>();
+        Gayer();
+
+
     }
-     void Update()
+    protected void Shooting(InputAction.CallbackContext context)
     {
-        
+
         if (!isShooting)
-            StartCoroutine(Shoot(KeyCode.Q));
-        
-
-
+            StartCoroutine(Shoot());
     }
-    protected virtual IEnumerator Shoot(KeyCode k)
-    {
-        if (Input.GetKeyDown(k))
-        {
+    protected IEnumerator Shoot()
+    { 
             pointShot = transform.GetChild(0).position;
             Instantiate(Ball, pointShot, Quaternion.identity);
             ballMovement.timer = 0;
@@ -41,13 +47,22 @@ public class Gun : MonoBehaviour
             animator.SetBool("isShooting",true);
             isShooting = true;
          
-            yield return new WaitForSeconds(reloadTime);
+            yield return reloadWait;
             animator.SetBool("isShooting", false);
+        isShooting = false;
+
         
-            isShooting = false;
-
-
-        }
     }
-  
+    protected virtual void Gayer()
+    {
+        fire = gay.Map.Player.Fire;
+        fire.performed += Shooting;
+        fire.Enable();
+    }
+     void OnDisable()
+    {
+            fire.performed -= Shooting;
+            fire.Disable();
+          }
+
 }
