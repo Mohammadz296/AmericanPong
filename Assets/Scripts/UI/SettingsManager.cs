@@ -1,15 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement;
 
 public class SettingsManager : MonoBehaviour
 {
 
-    
+
     Resolution[] resolutions;
     [SerializeField] TextMeshProUGUI speedText;
     [SerializeField] TextMeshProUGUI deathRateText;
@@ -30,25 +28,25 @@ public class SettingsManager : MonoBehaviour
     private void Start()
     {
         Volume.value = PlayerPrefs.GetFloat("Volume", 0);
-        int f= PlayerPrefs.GetInt("isFullScreen", 1);
-        if(f==1)
-        fullScreen.isOn=true;
+        int f = PlayerPrefs.GetInt("isFullScreen", 1);
+        if (f == 1)
+            fullScreen.isOn = true;
         else
-            fullScreen.isOn=false;
+            fullScreen.isOn = false;
         int g = PlayerPrefs.GetInt("isProcessing", 2);
         if (g == 2)
             Processing.isOn = true;
         else
             Processing.isOn = false;
-        DeathRate.value= PlayerPrefs.GetInt("deathRate", 10);
-         Speed.value = PlayerPrefs.GetInt("speed", 10);
+        DeathRate.value = PlayerPrefs.GetInt("deathRate", 10);
+        Speed.value = PlayerPrefs.GetInt("speed", 10);
         Reload.value = PlayerPrefs.GetInt("reloadTime", 3);
-        Score.value= PlayerPrefs.GetInt("maxScore", 5);
+        Score.value = PlayerPrefs.GetInt("maxScore", 5);
 
-        menuManager=GetComponent<MenuManager>();
+        menuManager = GetComponent<MenuManager>();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
-       
+
 
         List<string> options = new List<string>();
         int currentResolutionIndex = 0;
@@ -64,12 +62,11 @@ public class SettingsManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-        resolutionDropdown.value=PlayerPrefs.GetInt("resolutionIndex",0);
-      
-        qualt.value= PlayerPrefs.GetInt("Quality", 0);
-        
+        resolutionDropdown.value = PlayerPrefs.GetInt("resolutionIndex", 0);
+
+        qualt.value = PlayerPrefs.GetInt("Quality", 0);
+
     }
-   
 
     public void SetVolume(float volume)
     {
@@ -101,14 +98,14 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("resolutionIndex", resolutionIndex);
         Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height,Screen.fullScreen);
-        
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+
     }
-   
+
     public void SetSpeedSlider(float speed)
     {
         speedText.SetText(speed.ToString());
-        PlayerPrefs.SetInt("speed",  (int)speed);
+        PlayerPrefs.SetInt("speed", (int)speed);
     }
     public void SetDeathRateSlider(float deathRate)
     {
@@ -118,7 +115,7 @@ public class SettingsManager : MonoBehaviour
     public void setReloadTimeSlider(float reloadTime)
     {
         reloadTimeText.SetText(reloadTime.ToString());
-        PlayerPrefs.SetInt("reloadTime",(int)reloadTime);
+        PlayerPrefs.SetInt("reloadTime", (int)reloadTime);
     }
     public void SetMaxScoreSlider(float score)
     {

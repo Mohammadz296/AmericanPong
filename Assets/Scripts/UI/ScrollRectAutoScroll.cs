@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+// this code is borrowed from emredesu  https://gist.github.com/emredesu/af597de14a4377e1ecf96b6f7b6cc506 
 
 [RequireComponent(typeof(ScrollRect))]
 public class ScrollRectAutoScroll : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler

@@ -16,15 +16,13 @@ public class Gun : MonoBehaviour
     protected WaitForSeconds reloadWait;
 
     protected Vector3 pointShot;
-    protected void Awake()
-    {
-        reloadWait= new WaitForSeconds(reloadTime);
-    }
+   
 
     protected void Start()
     {
         reloadTime = PlayerPrefs.GetInt("reloadTime",3);
-       ballMovement=Ball.GetComponent<BallMovement>();
+        reloadWait = new WaitForSeconds(reloadTime);
+        ballMovement =Ball.GetComponent<BallMovement>();
         gunShot = GetComponent<AudioSource>();
    animator= GetComponent<Animator>();
         Gayer();

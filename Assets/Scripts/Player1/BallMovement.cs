@@ -29,7 +29,8 @@ public class BallMovement : MonoBehaviour
         TimedDeath();
 
     }
-     void Movement()
+    //other than the rest of the movement this specific code was taken from a video made by BMo as I did not know how to move the ball https://www.youtube.com/watch?v=YHSanceczXY
+    void Movement()
     {
         Move.x = Random.Range(0, 2) == 0 ? -1 : 1;
         Move.y = Random.Range(0, 2) == 0 ? -1 : 1;
