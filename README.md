@@ -11,3 +11,15 @@ Player two:
 I moving up
 K moving down
 U shooting
+
+Controller:
+Player one:
+Up D pad moving up
+down D pad moving down
+left/right d pad shooting
+
+Player two:
+Y moving up
+A moving down
+X/B shooting
+
