@@ -23,6 +23,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] Slider Speed;
     [SerializeField] Slider Reload;
     [SerializeField] Slider Score;
+    [SerializeField] Toggle lightTog;
     MenuManager menuManager;
 
     private void Start()
@@ -38,11 +39,11 @@ public class SettingsManager : MonoBehaviour
             Processing.isOn = true;
         else
             Processing.isOn = false;
+        lightTog.isOn = PlayerPrefs.GetInt("isLight",2) == 2;
         DeathRate.value = PlayerPrefs.GetInt("deathRate", 10);
         Speed.value = PlayerPrefs.GetInt("speed", 10);
         Reload.value = PlayerPrefs.GetInt("reloadTime", 3);
         Score.value = PlayerPrefs.GetInt("maxScore", 5);
-
         menuManager = GetComponent<MenuManager>();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -93,6 +94,13 @@ public class SettingsManager : MonoBehaviour
         else
             PlayerPrefs.SetInt("isProcessing", 1);
 
+    }
+    public void SetLightToggle(bool isLight)
+    {
+        if (isLight)
+            PlayerPrefs.SetInt("isLight", 2);
+        else
+            PlayerPrefs.SetInt ("isLight", 1);
     }
     public void SetResolution(int resolutionIndex)
     {

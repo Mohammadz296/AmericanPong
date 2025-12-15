@@ -49,12 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65515910334b6dd4fa2c655d22b5c4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
-  rb: {fileID: 3926021346368120332}
-  bounce: {fileID: 6602997870123499605}
   playerTag: PlayerTwo
-  DeathRate: 10
-  timer: 0
+  QueueName: Ball1
 --- !u!58 &3612055097971400975
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +112,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!82 &6602997870123499605
 AudioSource:
@@ -280,6 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4298846769292139179}
   - component: {fileID: 3795224675030317895}
+  - component: {fileID: 3339049018165676835}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
@@ -354,3 +351,15 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &3339049018165676835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274503327019880077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ce08dfb1f89964abe47c288623af40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

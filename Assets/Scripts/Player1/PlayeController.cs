@@ -4,13 +4,12 @@ public class PlayeController : MonoBehaviour
 {
 
     protected AudioSource PointSound;
-
-    // Start is called before the first frame update
-
     [SerializeField] protected float Speed;
     [SerializeField] protected string ballTag;
+
     protected InputAction move;
-     InputAction pause;
+    bool isLocal = true;
+    InputAction pause;
     protected Rigidbody2D rb;
     protected Vector2 movement;
 
@@ -23,8 +22,8 @@ public class PlayeController : MonoBehaviour
 
     protected void Update()
     {
-
-        movement = move.ReadValue<Vector2>();
+        if (isLocal)
+            movement = move.ReadValue<Vector2>();
     }
     protected void FixedUpdate()
     {
@@ -50,13 +49,14 @@ public class PlayeController : MonoBehaviour
     }
     private void OnEnable()
     {
+
         move = GameManager.instance.Map.Player.Movement;
-        pause=GameManager.instance.Map.Player.Pause;
+        pause = GameManager.instance.Map.Player.Pause;
+
         GameManager.instance.Map.Player.Pause.performed += Pause;
+
         move.Enable();
         pause.Enable();
-
-
     }
     private void OnDisable()
     {
@@ -65,4 +65,8 @@ public class PlayeController : MonoBehaviour
         pause.Disable();
 
     }
+    public void NotLocal()=> isLocal = false;
+    
+    public void IsLocal()=> isLocal=true;   
+   
 }

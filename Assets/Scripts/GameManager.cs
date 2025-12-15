@@ -5,51 +5,26 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    public enum State
-    {
-        Game,
-        Pause,
-        GameOver,
 
-    }
+    [SerializeField] BallMovement bulletPrefab;
+    [SerializeField] BallMovement bulletPrefab2;
     [SerializeField] EventSystem e;
     [SerializeField] GameObject PauseFirst;
     [SerializeField] GameObject GameEndFirst;
-    public State state;
     public Player1 Map;
     public static GameManager instance;
     public Action Pause;
     public Action DePause;
     public Action End;
-    private void Update()
-    {
-        switch (state)
-        {
-            case State.Game:
-                Time.timeScale = 1;
-                break;
-            case State.Pause:
-                Time.timeScale = 0;
-                break;
-            case State.GameOver:
-                Time.timeScale = 0;
-                break;
-
-        }
-    }
+   
     void changeEventStart(GameObject s)
     {
         e.SetSelectedGameObject(s);
     }
-    void PauseUnpause(InputAction.CallbackContext context)
+    void SetupPool()
     {
-        if (state == State.Pause)
-        {
-            UnPause();
-        }
-        else
-            PauseGame();
-
+        GunPooler.Setup(bulletPrefab, 10, "Ball1");
+   GunPooler.Setup(bulletPrefab2, 10, "Ball2");
     }
 
     private void Awake()
@@ -60,27 +35,29 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+        Time.timeScale = 1;
+        SetupPool();
 
     }
 
     public void UnPause()
     {
+         Time.timeScale = 1;
         ToggleActionMap(Map.Player, Map.Player2);
-        state = State.Game;
         DePause?.Invoke();
     }
     public void PauseGame()
     {
+        Time.timeScale = 0;
         ToggleActionMap();
         changeEventStart(PauseFirst);
-        state = State.Pause;
         Pause?.Invoke();
     }
     public void GameOver()
     {
+          Time.timeScale = 0;
         ToggleActionMap();
         changeEventStart(GameEndFirst);
-        state = State.GameOver;
         End?.Invoke();
 
     }
@@ -95,9 +72,12 @@ public class GameManager : MonoBehaviour
         actionMap.Enable();
         actionMap2.Enable();
     }
-    private void OnDisable()
+    void OnDisable()
     {
+       GunPooler.QueueClear("Ball1");
+ GunPooler.QueueClear("Ball2");
         Map.Disable();
+
     }
 
 
